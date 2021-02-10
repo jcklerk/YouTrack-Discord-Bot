@@ -1,0 +1,20 @@
+{
+  "name": "youtrack-bot",
+  "version": "1.0.0",
+  "description": "Bot for Youtrack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.compict.nl:8888/jkragt/Youtrack_bot.git"
+  },
+  "author": "Julian Kragt, Viggo de Jong",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "discord.js": "^12.5.1",
+    "node-fetch": "^2.6.1"
+  }
+}
