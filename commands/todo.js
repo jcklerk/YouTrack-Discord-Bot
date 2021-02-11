@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const axios = require('axios');
 const { url, api_credentials, api_issues, api_project } = require('../botconfig.json');
 const api_header = { headers: { authorization: api_credentials }}
+const { prefix, token } = require('../botconfig.json');
 module.exports = {
     name: 'todo',
     description: 'Todo',
@@ -25,7 +26,18 @@ module.exports = {
               }
               let issueValue = await getissue();
               let length = Object.keys(issueValue).length;
-              let sprintcheck = "Sprint 1";
+              let messagecontent = message.content.slice(prefix.length).slice(5).trim().toLocaleLowerCase();
+              if (messagecontent == "1" || messagecontent == "sprint1" || messagecontent == "sprint 1") {
+                  var sprintcheck = "Sprint 1";
+              }else if (messagecontent == "2" || messagecontent == "sprint2" || messagecontent == "sprint 2"){
+                  var sprintcheck = "Sprint 2"
+              }else if (messagecontent == "3" || messagecontent == "sprint3" || messagecontent == "sprint 3"){
+                  var sprintcheck = "Sprint 3"
+              } else if (messagecontent == "4" || messagecontent == "sprint4" || messagecontent == "sprint 4"){
+                  var sprintcheck = "Sprint 4"
+              }else if (messagecontent == "0" || messagecontent == "sprint0" || messagecontent == "sprint 0" || messagecontent == "un" || messagecontent == "unscheduled"){
+                  var sprintcheck = "Unscheduled"
+              }
 
               const ToDo = new Discord.MessageEmbed()
                   .setColor('#AF7AC5')
@@ -33,7 +45,6 @@ module.exports = {
                   .setDescription('All the things you still have in your ToDo list')
               for (var i = 0; i < length; i++) {
                   if (issueValue[i].customFields[4].value[0] == undefined){
-                    console.log("Unscheduled");
                       var sprint = "Unscheduled";
                   }else {
                       var sprint = issueValue[i].customFields[4].value[0].name;
