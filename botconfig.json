@@ -2,5 +2,7 @@
   "prefix": ">",
   "token": "ODA4NjI4MjAxMzI4ODY5NDM2.YCJTsg.c0R7fMvYDMDam3cuVA021gLTt9w",
   "url": "https://youtrack.icebox.dev/api/admin/projects",
-  "api_credentials": "Bearer perm:dmpvbmc0MjIxQHN0dWRlbnQubGFuZHN0ZWRlLm5s.NTktMQ==.YzwzwFsApq7KfJ01eTaJq32cdCBvOq"
+  "api_credentials": "Bearer perm:dmpvbmc0MjIxQHN0dWRlbnQubGFuZHN0ZWRlLm5s.NTktMQ==.YzwzwFsApq7KfJ01eTaJq32cdCBvOq",
+  "api_issues": "/issues?fields=$type,id,summary,customFields($type,id,projectCustomField($type,id,field($type,id,name)),value($type,avatarUrl,buildLink,color(id),fullName,id,isResolved,localizedName,login,minutes,name,presentation,text))",
+  "api_project": "?fields=id,name"
 }
