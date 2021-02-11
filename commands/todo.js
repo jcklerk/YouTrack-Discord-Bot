@@ -39,10 +39,14 @@ module.exports = {
             .setColor('#AF7AC5')
             .setTitle('ToDo')
             .setDescription('All the things you still have in your ToDo list')
-
         for (var i = 0; i < length; i++) {
             console.log(issueValue[i].customFields[4].value[0].name);
-            if (issueValue[i].customFields[4].value[0].name == sprintcheck) {
+            if (issueValue.hasOwnProperty(issueValue[i].customFields[4].value[0].name)){
+                var sprint = "Unscheduled";
+            }else {
+                var sprint = issueValue[i].customFields[4].value[0].name;
+            }
+            if (sprint == sprintcheck) {
                 if (issueValue[i].customFields[1].value.name == "Open") {
                     ToDo.addFields({
                         name: issueValue[i].summary,
