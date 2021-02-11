@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const axios = require('axios');
-const api_header = { headers: { authorization: "Bearer perm:dmpvbmc0MjIxQHN0dWRlbnQubGFuZHN0ZWRlLm5s.NTktMQ==.YzwzwFsApq7KfJ01eTaJq32cdCBvOq" }}
-const url = "https://youtrack.icebox.dev/api/admin/projects";
+const { url, api_credentials } = require('../botconfig.json');
+const api_header = { headers: { authorization: api_credentials }}
 const api_project = "?fields=id,name";
 const api_issues = "/issues?fields=$type,id,summary,customFields($type,id,projectCustomField($type,id,field($type,id,name)),value($type,avatarUrl,buildLink,color(id),fullName,id,isResolved,localizedName,login,minutes,name,presentation,text))";
 module.exports = {
@@ -22,7 +22,6 @@ module.exports = {
               //onsole.log(message.channel.name);
               //console.log(project_id_Value[i].id);
               console.log(id_project_id);
-      console.log(url+id_project_id+api_issues);
 
         let getissue = async () => {
             console.log(url+id_project_id+api_issues);
