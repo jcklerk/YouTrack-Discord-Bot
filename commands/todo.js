@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const axios = require('axios');
-const { url, api_credentials, api_issues, api_project } = require('../botconfig.json');
+const { url, api_credentials, api_issues, api_project } = require('../apiconfig.json');
 const api_header = { headers: { authorization: api_credentials }}
 const { prefix, token } = require('../botconfig.json');
 module.exports = {
