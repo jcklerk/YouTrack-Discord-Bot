@@ -22,7 +22,6 @@ module.exports = {
               //onsole.log(message.channel.name);
               //console.log(project_id_Value[i].id);
               console.log(id_project_id);
-      console.log(url+id_project_id+api_issues);
 
         let getissue = async () => {
             console.log(url+id_project_id+api_issues);
