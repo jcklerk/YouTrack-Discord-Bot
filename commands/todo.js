@@ -31,6 +31,8 @@ module.exports = {
         }
         let issueValue = await getissue();
         let length = Object.keys(issueValue).length;
+        let sprintcheck = "Sprint 1";
+
 
         const ToDo = new Discord.MessageEmbed()
             .setColor('#AF7AC5')
@@ -38,8 +40,15 @@ module.exports = {
             .setDescription('All the things you still have in your ToDo list')
 
         for (var i = 0; i < length; i++) {
-            if (issueValue[i].customFields[1].value.name == "Open") {
-                ToDo.addFields({name: issueValue[i].summary, value: `Points: `+issueValue[i].customFields[5].value, inline: true},)
+            console.log(issueValue[i].customFields[4].value[0].name);
+            if (issueValue[i].customFields[4].value[0].name == sprintcheck) {
+                if (issueValue[i].customFields[1].value.name == "Open") {
+                    ToDo.addFields({
+                        name: issueValue[i].summary,
+                        value: `Points: ` + issueValue[i].customFields[5].value,
+                        inline: true
+                    },)
+                }
             }
         }
         return message.channel.send(ToDo);
